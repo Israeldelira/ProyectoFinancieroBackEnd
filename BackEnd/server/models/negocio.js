@@ -3,7 +3,7 @@ const uniquevalidator = require('mongoose-unique-validator');
 
 let Schema = mongoose.Schema;
 
-let usuarioSchema = new Schema({
+let negocioSchema = new Schema({
     nombre: {
         type: String,
         unique: true,
@@ -18,18 +18,6 @@ let usuarioSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: [true, 'Por favor ingresa el  usuario']
     },
-    sign_up_date: {
-        type: Date,
-        default: Date.now()
-    },
-    last_login_date: {
-        type: Date,
-        default: Date.now()
-    },
-
-    img: {
-        type: String
-    },
     estado: {
         type: Boolean,
         default: true
@@ -37,8 +25,8 @@ let usuarioSchema = new Schema({
 
 });
 
-usuarioSchema.plugin(uniquevalidator, {
+negocioSchema.plugin(uniquevalidator, {
     message: '{PATH} Debe ser unico y diferente'
 });
 
-module.exports = mongoose.model('Usuario', usuarioSchema);
+module.exports = mongoose.model('Negocio', negocioSchema);

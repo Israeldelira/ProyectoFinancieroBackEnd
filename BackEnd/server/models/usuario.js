@@ -26,6 +26,14 @@ let usuarioSchema = new Schema({
             'admin'
         ]
     },
+    sign_up_date: {
+        type: Date,
+        default: Date.now()
+    },
+    last_login_date: {
+        type: Date,
+        default: Date.now()
+    },
     img: {
         type: String
     },
